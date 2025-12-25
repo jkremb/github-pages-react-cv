@@ -11,16 +11,22 @@ function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <div className="topbar-left">
-          <div className="logo-circle">JK</div>
-          <span className="topbar-name">Julian D. Kremb</span>
+        <div className="topbar-inner">
+          <div className="topbar-left">
+            <div className="logo-circle">JK</div>
+            <span className="topbar-name">Julian D. Kremb</span>
+          </div>
+          <nav className="topbar-nav">
+            <button onClick={() => handleScrollTo('about')}>About</button>
+            <button onClick={() => handleScrollTo('skills')}>Skills</button>
+            <button onClick={() => handleScrollTo('experience')}>
+              Experience
+            </button>
+            <button onClick={() => handleScrollTo('education')}>
+              Education
+            </button>
+          </nav>
         </div>
-        <nav className="topbar-nav">
-          <button onClick={() => handleScrollTo('about')}>About</button>
-          <button onClick={() => handleScrollTo('skills')}>Skills</button>
-          <button onClick={() => handleScrollTo('experience')}>Experience</button>
-          <button onClick={() => handleScrollTo('education')}>Education</button>
-        </nav>
       </header>
 
       <main>
@@ -28,13 +34,12 @@ function App() {
         <section id="about" className="hero">
           <div className="hero-text">
             <p className="hero-kicker">Frontend Engineer · Berlin, Germany</p>
-            <h1 className="hero-title">
-              Building user‑focused web experiences
-            </h1>
+            <h1 className="hero-title">Building user‑focused web experiences</h1>
             <p className="hero-subtitle">
-              Software engineer specializing in Angular and React with TypeScript.
-              Over 6 years of experience delivering scalable applications for
-              leading German automotive clients like Volkswagen and Audi.
+              Software engineer specializing in Angular and React with
+              TypeScript. Over 6 years of experience delivering scalable
+              applications for leading German automotive clients like Volkswagen
+              and Audi.
             </p>
             <div className="hero-actions">
               <a
@@ -59,8 +64,8 @@ function App() {
           </div>
           <div className="hero-card">
             <div className="hero-avatar" aria-hidden="true">
-              {/* Replace gradient circle with an image if you have one:
-                 <img src={avatar} alt="Portrait of Julian Kremb" />
+              {/* If you have a headshot, import and place it here:
+                  <img src={avatar} alt="Portrait of Julian Kremb" />
               */}
             </div>
             <div className="hero-card-body">
@@ -211,7 +216,9 @@ function App() {
                 <header className="timeline-header">
                   <div>
                     <h3>Co‑Founder, Lead Developer &amp; Designer</h3>
-                    <p className="company">Paiir UG – Interactive Photo‑Sharing App</p>
+                    <p className="company">
+                      Paiir UG – Interactive Photo‑Sharing App
+                    </p>
                   </div>
                   <div className="meta">
                     <span>2014 – 2016</span>
@@ -271,9 +278,7 @@ function App() {
 
       <footer className="footer">
         <p>&copy; {new Date().getFullYear()} Julian D. Kremb</p>
-        <p>
-          Built with React, TypeScript &amp; Vite.
-        </p>
+        <p>Built with React, TypeScript &amp; Vite.</p>
       </footer>
     </div>
   );
