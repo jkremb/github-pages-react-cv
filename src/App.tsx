@@ -1,11 +1,17 @@
 import './App.css';
 
 function App() {
+  const NAV_HEIGHT = 64; // px – adjust if you change topbar height
+
   const handleScrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const absoluteElementTop = rect.top + window.pageYOffset;
+    const y = absoluteElementTop - NAV_HEIGHT - 16; // 16px extra spacing
+
+    window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
   return (
@@ -19,12 +25,8 @@ function App() {
           <nav className="topbar-nav">
             <button onClick={() => handleScrollTo('about')}>About</button>
             <button onClick={() => handleScrollTo('skills')}>Skills</button>
-            <button onClick={() => handleScrollTo('experience')}>
-              Experience
-            </button>
-            <button onClick={() => handleScrollTo('education')}>
-              Education
-            </button>
+            <button onClick={() => handleScrollTo('experience')}>Experience</button>
+            <button onClick={() => handleScrollTo('education')}>Education</button>
           </nav>
         </div>
       </header>
@@ -36,10 +38,9 @@ function App() {
             <p className="hero-kicker">Frontend Engineer · Berlin, Germany</p>
             <h1 className="hero-title">Building user‑focused web experiences</h1>
             <p className="hero-subtitle">
-              Software engineer specializing in Angular and React with
-              TypeScript. Over 6 years of experience delivering scalable
-              applications for leading German automotive clients like Volkswagen
-              and Audi.
+              Software engineer specializing in Angular and React with TypeScript.
+              Over 6 years of experience delivering scalable applications for leading
+              German automotive clients like Volkswagen and Audi.
             </p>
             <div className="hero-actions">
               <a
@@ -71,8 +72,8 @@ function App() {
             <div className="hero-card-body">
               <h2>Currently</h2>
               <p>
-                Frontend Software Engineer at IAV, working on in‑car experiences
-                and internal AI‑assisted management tooling.
+                Frontend Software Engineer at IAV, working on automotive webapps
+                and systems.
               </p>
               <div className="hero-tags">
                 <span>Angular</span>
@@ -89,8 +90,8 @@ function App() {
           <div className="section-header">
             <h2>Skills</h2>
             <p>
-              A full front‑of‑stack skill set for modern web applications, from
-              UI to deployment pipelines.
+              A full front‑of‑stack skill set for modern web applications, from UI
+              to deployment pipelines.
             </p>
           </div>
           <div className="cards-grid">
@@ -136,6 +137,7 @@ function App() {
           </div>
 
           <div className="timeline">
+            {/* Frontend Software Engineer */}
             <article className="timeline-item">
               <div className="timeline-dot" />
               <div className="timeline-content card">
@@ -147,23 +149,21 @@ function App() {
                     </p>
                   </div>
                   <div className="meta">
-                    <span>2019 – present</span>
-                    <span>Berlin, Germany</span>
+                    <span>2022 – present</span>
                   </div>
                 </header>
-                <p className="role-note">
-                  Working student (2019–2022), Frontend Software Engineer
-                  (2022–present)
-                </p>
                 <ul>
                   <li>
                     Developed the “Wellness In‑Car App” from scratch for
-                    Volkswagen using Angular, TypeScript and Node.js, launched
-                    as a flagship app for VW’s ID. electric vehicle family.
+                    Volkswagen using Angular, TypeScript and Node.js, launched as
+                    a flagship app for VW’s ID. electric vehicle family.
                   </li>
                   <li>
-                    Building an in‑house proof‑of‑concept web app for AI‑assisted
+                    Built an in‑house proof‑of‑concept web app for AI‑assisted
                     agile management using React and TypeScript.
+                  </li>
+                  <li>
+                    Delivered the frontend component of a automobile devices database, as part of a project acquisition hackathon using Vue.js, Tailwind and Typescript.
                   </li>
                   <li>
                     Collaborating in Kanban teams with designers and product
@@ -178,6 +178,36 @@ function App() {
               </div>
             </article>
 
+            {/* Working Student */}
+            <article className="timeline-item">
+              <div className="timeline-dot" />
+              <div className="timeline-content card">
+                <header className="timeline-header">
+                  <div>
+                    <h3>Working Student – Frontend Development</h3>
+                    <p className="company">
+                      Ingenieurgesellschaft Auto und Verkehr (IAV)
+                    </p>
+                  </div>
+                  <div className="meta">
+                    <span>2019 – 2022</span>
+                  </div>
+                </header>
+                <ul>
+                  <li>
+                    Developed Python scripts to automate Jenkins jobs for a
+                    multi‑corporation data platform; maintained databases and
+                    assisted clients through technical support.
+                  </li>
+                  <li>
+                    Frontend developer for an automotive webapp in a
+                    Kanban‑structured team, using using Angular, TypeScript and Node.js.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            {/* IT Administrator */}
             <article className="timeline-item">
               <div className="timeline-dot" />
               <div className="timeline-content card">
@@ -190,7 +220,6 @@ function App() {
                   </div>
                   <div className="meta">
                     <span>2019</span>
-                    <span>Berlin, Germany</span>
                   </div>
                 </header>
                 <ul>
@@ -210,6 +239,7 @@ function App() {
               </div>
             </article>
 
+            {/* Paiir UG */}
             <article className="timeline-item">
               <div className="timeline-dot" />
               <div className="timeline-content card">
@@ -222,7 +252,6 @@ function App() {
                   </div>
                   <div className="meta">
                     <span>2014 – 2016</span>
-                    <span>Berlin, Germany</span>
                   </div>
                 </header>
                 <ul>
